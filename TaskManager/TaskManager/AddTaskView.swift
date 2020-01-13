@@ -13,7 +13,7 @@ struct AddTaskView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var title = ""
      @State private var desc = ""
-    @State private var urgency = ""
+    @State private var urgency = "Optional"
     let urgencies = ["   Very important   ", "  Important  ", " Not important ", "Optional"]
     var body: some View {
         NavigationView {
@@ -40,6 +40,9 @@ struct AddTaskView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }.buttonStyle(SaveButton())
                     .disabled(title.isEmpty)
+                Button("Cancel") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }.buttonStyle(SaveButton())
             }
         .navigationBarTitle("New Task")
         }
